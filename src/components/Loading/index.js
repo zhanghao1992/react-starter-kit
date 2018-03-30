@@ -19,9 +19,10 @@ class Loading extends Component {
         this.props.Store.updateLoading(true)
     }
     shouldComponentUpdate(nextProps){
-        if (this.props.location.pathname != nextProps.location.pathname) {
-            return true
-        }
+        // if (this.props.location.pathname != nextProps.location.pathname) {
+        //     return true
+        // }
+        return true
     }
     render() {
         return (

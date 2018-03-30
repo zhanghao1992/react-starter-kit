@@ -17,7 +17,7 @@ class Right extends Component {
         }
     }
     logout = () =>{
-        this.props.logout()
+        
     }
     render() {
         const {name} = this.props.Store.userInfo

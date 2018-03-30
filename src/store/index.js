@@ -13,7 +13,7 @@ import {observable, action} from 'mobx'
 
 class Store {
     @observable userInfo = {
-        name : ''
+        name : 'zhanghao'
     }
     @observable loading = false
     @action updateName = (name) => {

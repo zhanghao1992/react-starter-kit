@@ -1,10 +1,14 @@
 import React, {Component} from 'react'
+import { observer } from 'mobx-react';
 
+@observer
 class Home extends Component {
     render() {
+        const {store} = this.props
         return (
             <div className='Home_'>
-               home 张浩
+               {/* {store.userInfo} */}
+               xx
             </div>
         )
     }
