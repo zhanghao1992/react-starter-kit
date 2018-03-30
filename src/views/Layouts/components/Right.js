@@ -10,36 +10,43 @@ import Loading from '@/components/Loading'
 @inject('Store')
 @observer
 class Right extends Component {
-    componentWillMount(){
-        let {userInfo,updateName} = this.props.Store
-        if (userInfo.name == '') {
-            updateName(Cookies.get('userName'))
-        }
+  componentWillMount () {
+    let {userInfo, updateName} = this.props.Store
+    if (userInfo.name == '') {
+      updateName(Cookies.get('userName'))
     }
-    logout = () =>{
-        
+  }
+    logout = () => {
+
     }
-    render() {
-        const {name} = this.props.Store.userInfo
-        return (
-            <div className='right'>
-                <div className='header clear clearFix'>
-                    <div className='user'>
-                        <span className='font icon-touxiang'></span>
-                        <Tooltip title={<span style={{fontSize:'14px',cursor:'pointer'}} onClick={this.logout}>退出</span>}>
-                            <span className='name'>{name}</span>
-                        </Tooltip>
-                    </div>
-                </div>
-                <div className='routeWrap'>
-                    <Loading>
-                        {routerConfig.map((item,i)=>
-                            <Route key={i} path={item.path} component={item.component} exact/>
-                        )}
-                    </Loading>
-                </div>
+    render () {
+      const {name} = this.props.Store.userInfo
+      return (
+        <div className="right">
+          <div className="header clear clearFix">
+            <div className="user">
+              <span className="font icon-touxiang"></span>
+              <Tooltip title={<span onClick={this.logout}
+                  style={{fontSize: '14px', cursor: 'pointer'}}
+                              >退出</span>}
+              >
+                <span className="name">{name}</span>
+              </Tooltip>
             </div>
-        )
+          </div>
+          <div className="routeWrap">
+            <Loading>
+              {routerConfig.map((item, i) =>
+                <Route component={item.component}
+                    exact
+                    key={i}
+                    path={item.path}
+                />
+              )}
+            </Loading>
+          </div>
+        </div>
+      )
     }
 }
 

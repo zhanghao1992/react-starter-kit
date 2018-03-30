@@ -43,6 +43,14 @@ const config = {
                 exclude: /node_modules/
             },
             {
+                test: /(\.jsx|\.js)$/,
+                use : {
+                    loader: 'eslint-loader'
+                },
+                include: SRC_DIR,
+                exclude: /node_modules/
+            },
+            {
                 test    : /\.(png|jpe?g|gif|svg)(\?.*)?$/,
                 loader  : 'url-loader',
                 options : {
