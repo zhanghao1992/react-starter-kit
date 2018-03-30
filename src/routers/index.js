@@ -15,6 +15,9 @@ const Login = Loadable({
 
 @withRouter
 class Routers extends Component {
+  // componentDidMount(){
+  //   console.log(this.props)
+  // }
   render () {
     return (
       <Provider Store={store}>
