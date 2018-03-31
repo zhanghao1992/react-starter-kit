@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import {inject} from 'mobx-react'
 import {Button} from 'antd'
+import './index.scss'
 // import { withRouter } from 'react-router-dom'
 
 // @withRouter
@@ -17,7 +18,7 @@ class Home extends Component {
     const {Store} = this.props
     return (
       <div className="Home_">
-        {Store.userInfo.name}
+        <p className="username">{Store.userInfo.name}</p>
        <Button onClick={this.changeName}
            type="primary"
        >点击我换名字</Button>

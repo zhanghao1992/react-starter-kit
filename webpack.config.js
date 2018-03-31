@@ -18,14 +18,14 @@ const config = {
     },
     output: {
         path      : path.resolve(project.basePath, project.outDir),
-        filename  : envDevelopment ? 'js/[name].js' : "js/[name].[chunkhash:5].js",
+        filename  : envDevelopment ? 'js/[name].js' : 'js/[name].[chunkhash:5].js',
         publicPath: project.publicPath
     },
     devtool: devtool,
     resolve: {
         modules: [
             project.srcDir,
-            'node_modules',
+            'node_modules'
         ],
         alias: {
             '@': SRC_DIR
@@ -55,7 +55,7 @@ const config = {
                 loader  : 'url-loader',
                 options : {
                     limit: 10000,
-                    outputPath: "images"
+                    outputPath: 'images'
                 }
             }
         ]
@@ -71,7 +71,7 @@ const config = {
             inject   : true,
             favicon  : path.resolve('favicon.ico'),
             minify   : {
-                collapseWhitespace: true,
+                collapseWhitespace: true
             }
         }),
         new webpack.optimize.CommonsChunkPlugin({
@@ -90,8 +90,8 @@ fontLoader.forEach((font) => {
         options : {
             name  : 'fonts/[name].[ext]',
             limit : 10000,
-            mimetype,
-        },
+            mimetype
+        }
     })
 })
 
@@ -99,15 +99,19 @@ if (envDevelopment) {
     config.module.rules.push({
         test: /(\.less|\.css)$/,
         use: [{
-            loader: "style-loader"
+            loader: 'style-loader'
         }, {
-            loader: "css-loader"
+            loader: 'css-loader'
         }, {
-            loader: "less-loader",
+            loader: 'less-loader',
             options: {
                 javascriptEnabled: true
             }
         }]
+    })
+    config.module.rules.push({
+      test: /\.scss$/,
+      loader: 'style-loader!css-loader!sass-loader'
     })
     config.entry.main.push(
         'webpack-hot-middleware/client?path=./__webpack_hmr'
@@ -133,16 +137,16 @@ if (envProduction) {
                             autoprefixer: {
                                 add     : true,
                                 remove  : true,
-                                browsers: ['last 2 versions'],
+                                browsers: ['last 2 versions']
                             },
                             discardComments : {
-                                removeAll : true,
+                                removeAll : true
                             },
                             discardUnused: false,
                             mergeIdents  : false,
                             reduceIdents : false,
-                            safe         : true,
-                        },
+                            safe         : true
+                        }
                     }
                 },
                 {
@@ -150,16 +154,16 @@ if (envProduction) {
                     options: {
                         javascriptEnabled: true
                     }
-                },
+                }
             ],
-            fallback: 'style-loader',
+            fallback: 'style-loader'
         })
     })
     config.plugins.push(
         new ExtractTextPlugin({
             filename : 'css/[name].[contenthash:5].css',
             disable  : envDevelopment,
-            allChunks: true,
+            allChunks: true
         }),
         new webpack.optimize.ModuleConcatenationPlugin(),
         new webpack.optimize.UglifyJsPlugin({
