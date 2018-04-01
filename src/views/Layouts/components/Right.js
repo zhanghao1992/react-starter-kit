@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Route, withRouter } from 'react-router-dom'
+import { Route, withRouter} from 'react-router-dom'
 import {observer, inject} from 'mobx-react'
 import {Tooltip} from 'antd'
 import routerConfig from '@/config/routes'

@@ -23,7 +23,7 @@ class Routers extends Component {
       <Provider Store={store}>
         <HashRouter>
           <Switch>
-            {/* <Redirect to='/home'/> */}
+            {/* <Redirect to="/home"/> */}
             <Route component={Login}
                 exact
                 path="/login"
