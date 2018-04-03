@@ -9,7 +9,7 @@
     注意：无论是全局 Store，还是局部 store，必须 @inject('xxx')注入到 props 上才能获取，保证结构的一致性。
 
    ====================================================== */
-import {observable, action} from 'mobx'
+import {observable, action, computed} from 'mobx'
 
 class Store {
     @observable userInfo = {
@@ -22,6 +22,10 @@ class Store {
     @action updateLoading = (boolean) => {
       this.loading = boolean
     }
+
+    @computed get fullName() {
+      return `${this.firstName}, ${this.lastName}`;
+  }
 }
 
 export default new Store()
