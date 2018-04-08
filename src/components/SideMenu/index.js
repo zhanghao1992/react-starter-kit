@@ -1,4 +1,4 @@
-import React,{Component} from 'react'
+import React, {Component} from 'react'
 import menuConfig from './menu'
 import {withRouter} from 'react-router-dom'
 import { Menu } from 'antd'
@@ -8,15 +8,15 @@ const SubMenu = Menu.SubMenu
 @withRouter
 class SideMenu extends Component {
     state={
-      keys: []
+        keys: []
     }
     componentWillMount () {
-      this.selectKey()
+        this.selectKey()
     }
     componentWillReceiveProps (nextProps) {
-      if (this.props.location.pathname !== nextProps.location.pathname) {
-        this.selectKey()
-      }
+        if (this.props.location.pathname !== nextProps.location.pathname) {
+            this.selectKey()
+        }
     }
     selectKey = () => {
         let keys = []
@@ -24,36 +24,36 @@ class SideMenu extends Component {
         this.setState({keys: keys})
     }
       onSelect = ({key}) => {
-        this.props.history.push(key)
-    }
-    render () {
-      return (
-        <div className="SideMenu_wrap">
-          <Menu mode="inline"
-              onSelect={this.onSelect}
-              selectedKeys={this.state.keys}
-              theme="dark"
-          >
-            {menuConfig.map((item) =>
-              item.list && item.list.length > 0
-                ? <SubMenu key={item.key}
-                    title={<span><span className={'font icon-' + item.icon}></span><span>{item.title}</span></span>}
+          this.props.history.push(key)
+      }
+      render () {
+          return (
+              <div className="SideMenu_wrap">
+                  <Menu mode="inline"
+                      onSelect={this.onSelect}
+                      selectedKeys={this.state.keys}
+                      theme="dark"
                   >
-                  {item.list.map((listItem) =>
-                    <Menu.Item key={item.key + listItem.key}>
-                      <span>{listItem.title}</span>
-                    </Menu.Item>
-                  )}
-                </SubMenu>
-                : <Menu.Item key={item.key}>
-                  <span className={'font icon-' + item.icon}></span>
-                  <span>{item.title}</span>
-                </Menu.Item>
-            )}
-          </Menu>
-        </div>
-      )
-    }
+                      {menuConfig.map((item) =>
+                          item.list && item.list.length > 0 ?
+                              <SubMenu key={item.key}
+                                  title={<span><span className={'font icon-' + item.icon}></span><span>{item.title}</span></span>}
+                              >
+                                  {item.list.map((listItem) =>
+                                      <Menu.Item key={item.key + listItem.key}>
+                                          <span>{listItem.title}</span>
+                                      </Menu.Item>
+                                  )}
+                              </SubMenu>:
+                              <Menu.Item key={item.key}>
+                                  <span className={'font icon-' + item.icon}></span>
+                                  <span>{item.title}</span>
+                              </Menu.Item>
+                      )}
+                  </Menu>
+              </div>
+          )
+      }
 }
 
 export default SideMenu
