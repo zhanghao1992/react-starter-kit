@@ -8,17 +8,17 @@ const NoMatch = Loadable({loader: () => import('../views/404'), loading: DelayLo
 export default
 [
   {
-    'path': '/home',
+    'path': '/panel/home',
     'component': Home,
     'exact': true
   },
   {
-    'path': '/detail',
+    'path': '/panel/detail',
     'component': Detail,
     'exact': true
   },
   {
-    'path': '/NoMatch',
+    'path': '/panel/NoMatch',
     'component': NoMatch,
     'exact': false
   }

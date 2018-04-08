@@ -2,9 +2,9 @@ import React, {Component} from 'react'
 import { Route, withRouter} from 'react-router-dom'
 import {observer, inject} from 'mobx-react'
 import {Tooltip} from 'antd'
-import routerConfig from '@/config/routes'
+import routerConfig from '@/routers/right_routes'
 import Cookies from 'js-cookie'
-import Loading from '@/components/Loading'
+// import Loading from '@/components/Loading'
 
 @withRouter
 @inject('Store')
@@ -35,7 +35,7 @@ class Right extends Component {
             </div>
           </div>
           <div className="routeWrap">
-            <Loading>
+            {/* <Loading> */}
               {routerConfig.map((item, i) =>
                 <Route component={item.component}
                     exact
@@ -43,7 +43,7 @@ class Right extends Component {
                     path={item.path}
                 />
               )}
-            </Loading>
+            {/* </Loading> */}
           </div>
         </div>
       )

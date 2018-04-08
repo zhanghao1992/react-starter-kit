@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import menuConfig from '@/config/menu'
+import menuConfig from './menu'
 import {withRouter} from 'react-router-dom'
 import { Menu } from 'antd'
 import './index.less'
