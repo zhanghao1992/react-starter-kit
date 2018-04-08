@@ -1,10 +1,8 @@
 import { render } from 'react-dom'
 import React, {Component} from 'react'
-import {HashRouter, Route, Switch} from 'react-router-dom'
 import {Provider} from 'mobx-react'
-import Layouts from './views/Layouts'
 import store from './store'
-import {Login} from './routers'
+import RouterConfig from './routers'
 
 // @withRouter
 class App extends Component {
@@ -14,18 +12,7 @@ class App extends Component {
     render () {
         return (
             <Provider Store={store}>
-                <HashRouter>
-                    <Switch>
-                        {/* <Redirect to="/home"/> */}
-                        <Route component={Login}
-                            exact
-                            path="/login"
-                        />
-                        <Route component={Layouts}
-                            path="/panel"
-                        />
-                    </Switch>
-                </HashRouter>
+                <RouterConfig />
             </Provider>
         )
     }

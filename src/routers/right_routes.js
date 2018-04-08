@@ -10,22 +10,22 @@ const SetState = Loadable({loader: () => import('../views/SetState'), loading: D
 export default
 [
     {
-        'path': '/panel/home',
+        'path': '/home',
         'component': Home,
         'exact': true
     },
     {
-        'path': '/panel/detail',
+        'path': '/detail',
         'component': Detail,
         'exact': true
     },
     {
-        'path': '/panel/event-loop',
+        'path': '/event-loop',
         'component': EventLoop,
         'exact': true
     },
     {
-        'path': '/panel/state',
+        'path': '/state',
         'component': SetState,
         'exact': true
     },

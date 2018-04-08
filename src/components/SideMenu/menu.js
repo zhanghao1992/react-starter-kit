@@ -1,22 +1,22 @@
 export default
 [
     {
-        key: '/panel/home',
+        key: '/home',
         title: '首页',
         icon: 'home'
     },
     {
-        key: '/panel/detail',
+        key: '/detail',
         title: '详情页',
         icon: 'home'
     },
     {
-        key: '/panel/event-loop',
+        key: '/event-loop',
         title: '异步的event',
         icon: 'home'
     },
     {
-        key: '/panel/state',
+        key: '/state',
         title: 'setState',
         icon: 'home'
     }
