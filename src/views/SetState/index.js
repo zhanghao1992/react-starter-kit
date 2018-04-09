@@ -31,7 +31,7 @@ class SetState extends Component {
                   count2: now.count2 + 1
               }
           })
-          console.log(_this.state.count2)
+          console.log('count2:', _this.state.count2)
       })
 
       // setState同步实例2
@@ -46,35 +46,34 @@ class SetState extends Component {
   }
 
   clickHandle = () => {
-      // this.setState((nowState) => {
-      //     return {
-      //         count: nowState.count + 1
-      //     }
-      // })
-      // console.log('count:', this.state.count)
-
-      this.setState((nowState, props) => {
-          console.log(props)
+      this.setState((nowState) => {
           return {
               count: nowState.count + 1
           }
-      }, () => {
-          console.log('count:', this.state.count)
       })
+      console.log('count:', this.state.count)
+
+      // this.setState((nowState, props) => {
+      //     console.log(props)
+      //     return {
+      //         count: nowState.count + 1
+      //     }
+      // }, () => {
+      //     console.log('count:', this.state.count)
+      // })
   }
 
   render () {
       return (
           <div className="">
-              <p>{this.state.count}</p>
+              <p>count:{this.state.count}</p>
               <button
                   onClick={this.clickHandle}
-              >+</button>
-              <p>{this.state.count2}</p>
+              >异步+</button>
+              <p>count2:{this.state.count2}</p>
               <button
                   id="btn"
-                  onClick={this.clickHandle2}
-              >+</button>
+              >同步+</button>
           </div>
       )
   }

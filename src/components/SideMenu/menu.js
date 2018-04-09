@@ -5,11 +5,11 @@ export default
         title: '首页',
         icon: 'home'
     },
-    {
-        key: '/detail',
-        title: '详情页',
-        icon: 'home'
-    },
+    // {
+    //     key: '/detail',
+    //     title: '详情页',
+    //     icon: 'home'
+    // },
     {
         key: '/event-loop',
         title: '异步的event',
@@ -18,6 +18,11 @@ export default
     {
         key: '/state',
         title: 'setState',
+        icon: 'home'
+    },
+    {
+        key: '/map-object',
+        title: '循环对象',
         icon: 'home'
     }
 ]

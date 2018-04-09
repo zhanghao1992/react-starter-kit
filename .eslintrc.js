@@ -24,6 +24,7 @@ module.exports = {
   ],
   "rules": {
       "quotes": [2, "single"], //单引号
+      "no-alert": 0,//不禁用alert
       "no-console": 0, //不禁用console
       "no-debugger": 2, //禁用debugger
       "no-var": 1, //对var警告
@@ -94,6 +95,7 @@ module.exports = {
       "indent": [2],//缩进风格
       "space-unary-ops": [2, { "words": true, "nonwords": false }],//一元运算符的前/后要不要加空格
       "key-spacing": [2, { "beforeColon": false, "afterColon": true }],//对象字面量中冒号的前后空格
+    //   "guard-for-in": 2,
   },
   "settings": {
       "import/ignore": [
