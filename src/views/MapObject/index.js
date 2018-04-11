@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 
 class MapObject extends Component {
-    componentDidMount(){
+    componentDidMount (){
         const obj = {
             name: 'zh',
             age: '26'

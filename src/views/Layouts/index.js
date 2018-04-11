@@ -4,7 +4,7 @@ import Right from './components/Right'
 import './index.less'
 
 class Layouts extends Component {
-    render() {
+    render () {
         return (
             <div className="Layouts_wrap clear clearFix">
                 <Left />

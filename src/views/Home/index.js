@@ -8,7 +8,7 @@ import './index.scss'
 @inject('Store')
 @observer
 class Home extends Component {
-    componentDidMount(){
+    componentDidMount (){
         console.log(this.props)
     }
   changeName=(e) => {

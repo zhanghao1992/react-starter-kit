@@ -7,6 +7,7 @@ const NoMatch = Loadable({loader: () => import('../views/404'), loading: DelayLo
 const EventLoop = Loadable({loader: () => import('../views/EventLoop'), loading: DelayLoading, delay: 3000})
 const SetState = Loadable({loader: () => import('../views/SetState'), loading: DelayLoading, delay: 3000})
 const MapObject = Loadable({loader: () => import('../views/MapObject'), loading: DelayLoading, delay: 3000})
+const AsyncFnc = Loadable({loader: () => import('../views/AsyncFnc'), loading: DelayLoading, delay: 3000})
 
 export default
 [
@@ -33,6 +34,11 @@ export default
     {
         'path': '/map-object',
         'component': MapObject,
+        'exact': true
+    },
+    {
+        'path': '/async-fnc',
+        'component': AsyncFnc,
         'exact': true
     },
     {

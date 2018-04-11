@@ -6,7 +6,7 @@ class SetState extends Component {
       count2: 0
   }
 
-  componentWillMount(){
+  componentWillMount (){
       const num = 0;
       this.setState({
           a: 'a',
@@ -20,7 +20,7 @@ class SetState extends Component {
       })
   }
 
-  componentDidMount(){
+  componentDidMount (){
       // console.log(this.state)
       // setState同步实例1
       let btn = document.getElementById('btn')

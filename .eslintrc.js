@@ -96,6 +96,9 @@ module.exports = {
       "space-unary-ops": [2, { "words": true, "nonwords": false }],//一元运算符的前/后要不要加空格
       "key-spacing": [2, { "beforeColon": false, "afterColon": true }],//对象字面量中冒号的前后空格
     //   "guard-for-in": 2,
+    "arrow-spacing": 2,//=>的前/后括号
+    "arrow-parens": 2,//箭头函数用小括号括起来
+    "space-before-function-paren": [2, "always"],//函数定义时括号前面要不要有空格
   },
   "settings": {
       "import/ignore": [

@@ -6,7 +6,7 @@ class EventLoop extends Component {
       ev.persist()
       console.log(ev.target)
       setTimeout(() => {
-          console.log(ev.target.className)
+          console.log(ev.target)
           ev.target.className = 'active'
       }, 0)
 

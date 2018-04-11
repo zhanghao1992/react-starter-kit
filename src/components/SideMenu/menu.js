@@ -24,5 +24,10 @@ export default
         key: '/map-object',
         title: '循环对象',
         icon: 'home'
+    },
+    {
+        key: '/async-fnc',
+        title: 'async函数返回值',
+        icon: 'home'
     }
 ]
