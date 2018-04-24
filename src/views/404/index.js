@@ -4,7 +4,7 @@ class NoMatch extends Component {
     render () {
         return (
             <div className="">
-               404sbfhkjdshfjksh
+               404
             </div>
         )
     }

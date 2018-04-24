@@ -24,33 +24,29 @@ class SetState extends Component {
       // console.log(this.state)
       // setState同步实例1
       let btn = document.getElementById('btn')
-      const _this = this
       btn.addEventListener('click', () => {
-          _this.setState((now) => {
-              return{
-                  count2: now.count2 + 1
-              }
-          })
-          console.log('count2:', _this.state.count2)
+          this.setState((nowState) => ({
+              count2: nowState.count2 + 1
+          }))
+          console.log('count2:', this.state.count2)
       })
 
-      // setState同步实例2
-      // setInterval(() => {
-      //     _this.setState((now) => {
-      //         return{
-      //             count2: now.count2 + 1
-      //         }
-      //     })
-      //     console.log(_this.state.count2)
-      // }, 2000)
+      //   setState同步实例2
+      //   setInterval(() => {
+      //       this.setState((nowState) => ({
+      //           count2: nowState.count2 + 1
+      //       }))
+      //       console.log(this.state.count2)
+      //   }, 2000)
   }
 
   clickHandle = () => {
-      this.setState((nowState) => {
-          return {
-              count: nowState.count + 1
-          }
-      })
+      //   this.setState({
+      //       count: this.state.count + 1
+      //   })
+      this.setState((nowState) => ({
+          count: nowState.count + 1
+      }))
       console.log('count:', this.state.count)
 
       // this.setState((nowState, props) => {
@@ -66,11 +62,11 @@ class SetState extends Component {
   render () {
       return (
           <div className="">
-              <p>count:{this.state.count}</p>
+              <p style={{fontSize: 30}}>count:{this.state.count}</p>
               <button
                   onClick={this.clickHandle}
               >异步+</button>
-              <p>count2:{this.state.count2}</p>
+              <p style={{fontSize: 30}}>count2:{this.state.count2}</p>
               <button
                   id="btn"
               >同步+</button>

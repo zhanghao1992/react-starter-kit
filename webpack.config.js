@@ -12,13 +12,13 @@ const SRC_DIR = path.join(project.basePath, project.srcDir)
 
 const config = {
     entry: {
-        normalize : [path.join(project.basePath, project.srcDir, 'normalize')],
-        main      : [SRC_DIR],
-        vendor    : project.vendor
+        normalize: [path.join(project.basePath, project.srcDir, 'normalize')],
+        main: [SRC_DIR],
+        vendor: project.vendor
     },
     output: {
-        path      : path.resolve(project.basePath, project.outDir),
-        filename  : envDevelopment ? 'js/[name].js' : 'js/[name].[chunkhash:5].js',
+        path: path.resolve(project.basePath, project.outDir),
+        filename: envDevelopment ? 'js/[name].js' : 'js/[name].[chunkhash:5].js',
         publicPath: project.publicPath
     },
     devtool: devtool,
@@ -32,11 +32,11 @@ const config = {
         },
         extensions: ['*', '.js', '.jsx', '.json', '.less', '.css']
     },
-    module : {
+    module: {
         rules: [
             {
                 test: /(\.jsx|\.js)$/,
-                use : {
+                use: {
                     loader: 'babel-loader?cacheDirectory'
                 },
                 include: SRC_DIR,
@@ -44,16 +44,16 @@ const config = {
             },
             {
                 test: /(\.jsx|\.js)$/,
-                use : {
+                use: {
                     loader: 'eslint-loader'
                 },
                 include: SRC_DIR,
                 exclude: /node_modules/
             },
             {
-                test    : /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-                loader  : 'url-loader',
-                options : {
+                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+                loader: 'url-loader',
+                options: {
                     limit: 10000,
                     outputPath: 'images'
                 }
@@ -67,10 +67,10 @@ const config = {
             }
         }),
         new HtmlWebpackPlugin({
-            template : 'index.html',
-            inject   : true,
-            favicon  : path.resolve('favicon.ico'),
-            minify   : {
+            template: 'index.html',
+            inject: true,
+            favicon: path.resolve('favicon.ico'),
+            minify: {
                 collapseWhitespace: true
             }
         }),
@@ -85,11 +85,11 @@ fontLoader.forEach((font) => {
     let extension = font[0]
     let mimetype = font[1]
     config.module.rules.push({
-        test    : new RegExp(`\\.${extension}$`),
-        loader  : 'url-loader',
-        options : {
-            name  : 'fonts/[name].[ext]',
-            limit : 10000,
+        test: new RegExp(`\\.${extension}$`),
+        loader: 'url-loader',
+        options: {
+            name: 'fonts/[name].[ext]',
+            limit: 10000,
             mimetype
         }
     })
@@ -110,8 +110,8 @@ if (envDevelopment) {
         }]
     })
     config.module.rules.push({
-      test: /\.scss$/,
-      loader: 'style-loader!css-loader!sass-loader'
+        test: /\.scss$/,
+        loader: 'style-loader!css-loader!sass-loader'
     })
     config.entry.main.push(
         'webpack-hot-middleware/client?path=./__webpack_hmr'
@@ -126,26 +126,26 @@ if (envDevelopment) {
 if (envProduction) {
     config.module.rules.push({
         test: /(\.less|\.css)$/,
-        use : ExtractTextPlugin.extract({
+        use: ExtractTextPlugin.extract({
             use: [
                 {
-                    loader : 'css-loader',
+                    loader: 'css-loader',
                     options: {
-                        importLoaders  : 1,
-                        localIdentName : '[local]',
+                        importLoaders: 1,
+                        localIdentName: '[local]',
                         minimize: {
                             autoprefixer: {
-                                add     : true,
-                                remove  : true,
+                                add: true,
+                                remove: true,
                                 browsers: ['last 2 versions']
                             },
-                            discardComments : {
-                                removeAll : true
+                            discardComments: {
+                                removeAll: true
                             },
                             discardUnused: false,
-                            mergeIdents  : false,
-                            reduceIdents : false,
-                            safe         : true
+                            mergeIdents: false,
+                            reduceIdents: false,
+                            safe: true
                         }
                     }
                 },
@@ -161,27 +161,27 @@ if (envProduction) {
     })
     config.plugins.push(
         new ExtractTextPlugin({
-            filename : 'css/[name].[contenthash:5].css',
-            disable  : envDevelopment,
+            filename: 'css/[name].[contenthash:5].css',
+            disable: envDevelopment,
             allChunks: true
         }),
         new webpack.optimize.ModuleConcatenationPlugin(),
         new webpack.optimize.UglifyJsPlugin({
             sourceMap: project.sourceMap,
-            comments : false,
-            compress : {
-                warnings     : false,
-                screw_ie8    : true,
-                conditionals : true,
-                unused       : true,
-                comparisons  : true,
-                sequences    : true,
-                dead_code    : true,
-                evaluate     : true,
-                if_return    : true,
-                join_vars    : true,
+            comments: false,
+            compress: {
+                warnings: false,
+                screw_ie8: true,
+                conditionals: true,
+                unused: true,
+                comparisons: true,
+                sequences: true,
+                dead_code: true,
+                evaluate: true,
+                if_return: true,
+                join_vars: true,
                 drop_debugger: true,
-                drop_console : true
+                drop_console: true
             }
         })
     )

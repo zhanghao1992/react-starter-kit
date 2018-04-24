@@ -12,11 +12,11 @@ webpack(webpackConfig).run((err, stats) => {
     } else {
         spinner.stop()
         process.stdout.write(stats.toString({
-            colors       : true,
-            modules      : false,
-            children     : false,
-            chunks       : false,
-            chunkModules : false
+            colors: true,
+            modules: false,
+            children: false,
+            chunks: false,
+            chunkModules: false
         }) + '\n\n')
         console.log('Webpack compiler finished successfully！ See ./dist.')
     }

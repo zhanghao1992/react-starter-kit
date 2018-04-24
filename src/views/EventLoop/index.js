@@ -9,7 +9,6 @@ class EventLoop extends Component {
           console.log(ev.target)
           ev.target.className = 'active'
       }, 0)
-
   }
   render () {
       return (
